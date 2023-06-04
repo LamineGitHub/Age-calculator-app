@@ -1,0 +1,202 @@
+/* variable */
+$primary: hsl(259, 100%, 65%);
+$lightRed: hsl(0, 100%, 67%);
+$white: hsl(0, 0%, 100%);
+$offWhite: hsl(0, 0%, 94%);
+$lightGrey: hsl(0, 0%, 86%);
+$smokeyGrey: hsl(0, 1%, 44%);
+$offBlack: hsl(0, 0%, 8%);
+$inputFont: 32px;
+$font: "Poppins", sans-serif;
+
+/* mixin */
+@mixin media-max($max-width) {
+  @media screen and (max-width: $max-width) {
+    & {
+      @content;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $font;
+}
+
+body {
+  background-color: $offWhite;
+}
+
+main {
+  width: 50%;
+  min-width: max-content;
+  max-width: 720px;
+  font-family: $font;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $white;
+  padding: 40px;
+  border-radius: 20px 20px 180px 20px;
+
+  @include media-max(1024px) {
+    width: 65%;
+  }
+  @include media-max(425px) {
+    min-width: 340px;
+    padding: 40px 10px;
+    border-radius: 20px 20px 100px 20px;
+  }
+}
+
+/* start of form */
+form {
+  color: $smokeyGrey;
+
+  .line-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include media-max(768px) {
+      flex-direction: column;
+    }
+  }
+
+  .line-hr {
+    display: inline-block;
+    width: 90%;
+    height: 2px;
+    background-color: $offWhite;
+
+    @include media-max(768px) {
+      position: absolute;
+    }
+  }
+}
+
+#form-Container {
+  display: flex;
+  gap: 20px;
+
+  &.error {
+    color: $lightRed;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: small;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+  }
+
+  input {
+    width: 140px;
+    font-size: $inputFont;
+    font-weight: bold;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    border: 1px solid $lightGrey;
+    color: $offBlack;
+    outline: none;
+    transition: color 0.5s ease;
+
+    &:hover {
+      border-color: $primary;
+    }
+
+    &.error {
+      border-color: $lightRed;
+    }
+
+    @include media-max(768px) {
+      width: 120px;
+    }
+
+    @include media-max(425px) {
+      width: 90px;
+      font-size: 20px;
+    }
+  }
+
+  .errorMessage {
+    color: $lightRed;
+    font-size: smaller;
+    font-style: italic;
+  }
+}
+
+/* submit btn */
+button {
+  background-color: $primary;
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  margin-top: 5px;
+
+  @include media-max(768px) {
+    margin: 30px 0;
+  }
+
+  &::before {
+    content: "";
+    background: url(../images/icon-arrow.svg) no-repeat center;
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+  }
+
+  &::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    border-radius: 100%;
+    z-index: -1;
+    transition: opacity 0.3s ease-out;
+    background-color: $offBlack;
+    opacity: 0;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+/* end of form */
+
+/* start of result style*/
+#result {
+  color: $offBlack;
+  font-family: $font;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 80px;
+  line-height: 1.1;
+
+  span {
+    color: $primary;
+  }
+
+  @include media-max(768px) {
+    font-size: 65px;
+  }
+
+  @include media-max(425px) {
+    font-size: 55px;
+  }
+}
+/* end of result style*/
