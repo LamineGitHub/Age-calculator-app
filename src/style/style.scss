@@ -107,7 +107,9 @@ form {
     outline: none;
     transition: color 0.5s ease;
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
       border-color: $primary;
     }
 
@@ -143,6 +145,11 @@ button {
   position: relative;
   z-index: 1;
   margin-top: 5px;
+
+  &:focus {
+    outline-offset: 0.5px;
+    outline: 2px solid darken($color: $primary, $amount: 35%);
+  }
 
   @include media-max(768px) {
     margin: 30px 0;
