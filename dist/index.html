@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap"
+    rel="stylesheet">
+  <title>Age Calculator</title>
+  <script type="module" crossorigin src="/assets/index-45dceba2.js"></script>
+  <link rel="stylesheet" href="/assets/index-affb67db.css">
+</head>
+
+<body>
+
+  <main>
+
+    <form>
+
+      <div id="form-Container">
+
+        <div>
+          <label for="days">Day</label>
+          <input type="text" id="days" placeholder="DD" required autocomplete="off">
+          <p class="errorMessage"></p>
+        </div>
+
+        <div>
+          <label for="months">Month</label>
+          <input type="text" id="months" placeholder="MM" required autocomplete="off">
+          <p class="errorMessage"></p>
+        </div>
+
+        <div>
+          <label for="years">Year</label>
+          <input type="text" id="years" placeholder="YYYY" required autocomplete="off">
+          <p class="errorMessage"></p>
+        </div>
+
+      </div>
+
+      <div class="line-btn">
+        <span class="line-hr"></span>
+        <button type="submit"></button>
+      </div>
+
+    </form>
+
+    <aside id="result">
+      <p> <span id="year">- -</span> years</p>
+      <p> <span id="month">- -</span> months</p>
+      <p> <span id="day">- -</span> days</p>
+    </aside>
+
+  </main>
+
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Mamadou Lamine Diallo</a>.
+  </div> -->
+
+  
+</body>
+
+</html>
