@@ -8,6 +8,6 @@
  * inputId.
  */
 export function getInputValue(inputId: string): number {
-  const inputElement = document.getElementById(inputId) as HTMLInputElement
-  return parseInt(inputElement.value)
+  const {value} = document.getElementById(inputId) as HTMLInputElement
+  return parseInt(value)
 }
