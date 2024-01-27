@@ -110,6 +110,16 @@ form {
     }
   }
 
+  /* Chrome & Safari */
+  input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
   .errorMessage {
     color: v.$lightRed;
     font-size: smaller;
