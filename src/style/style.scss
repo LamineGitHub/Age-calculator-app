@@ -1,52 +1,35 @@
-/* variable */
-$primary: hsl(259, 100%, 65%);
-$lightRed: hsl(0, 100%, 67%);
-$white: hsl(0, 0%, 100%);
-$offWhite: hsl(0, 0%, 94%);
-$lightGrey: hsl(0, 0%, 86%);
-$smokeyGrey: hsl(0, 1%, 44%);
-$offBlack: hsl(0, 0%, 8%);
-$inputFont: 32px;
-$font: "Poppins", sans-serif;
-
-/* mixin */
-@mixin media-max($max-width) {
-  @media screen and (max-width: $max-width) {
-    & {
-      @content;
-    }
-  }
-}
+@use "abstract/variables" as v;
+@use "abstract/mixin" as m;
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: $font;
+  font-family: v.$font;
 }
 
 body {
-  background-color: $offWhite;
+  background-color: v.$offWhite;
 }
 
 main {
   width: 50%;
   min-width: max-content;
   max-width: 720px;
-  font-family: $font;
+  font-family: v.$font;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: $white;
+  background-color: v.$white;
   padding: 40px;
   border-radius: 20px 20px 180px 20px;
 
-  @include media-max(1024px) {
+  @include m.media-max(1024px) {
     width: 65%;
   }
 
-  @include media-max(425px) {
+  @include m.media-max(425px) {
     min-width: 340px;
     padding: 40px 10px;
     border-bottom-right-radius: 120px;
@@ -55,14 +38,14 @@ main {
 
 /* start of form */
 form {
-  color: $smokeyGrey;
+  color: v.$smokeyGrey;
 
   .line-btn {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    @include media-max(768px) {
+    @include m.media-max(768px) {
       flex-direction: column;
     }
   }
@@ -71,9 +54,9 @@ form {
     display: inline-block;
     width: 90%;
     height: 2px;
-    background-color: $offWhite;
+    background-color: v.$offWhite;
 
-    @include media-max(768px) {
+    @include m.media-max(768px) {
       position: absolute;
     }
   }
@@ -84,7 +67,7 @@ form {
   gap: 20px;
 
   &.error {
-    color: $lightRed;
+    color: v.$lightRed;
   }
 
   label {
@@ -97,46 +80,48 @@ form {
 
   input {
     width: 140px;
-    font-size: $inputFont;
+    font-size: v.$inputFont;
     font-weight: bold;
     padding: 10px 15px;
     margin-bottom: 5px;
     border-radius: 10px;
-    border: 1px solid $lightGrey;
-    color: $offBlack;
+    border: 1px solid v.$lightGrey;
+    color: v.$offBlack;
     outline: none;
     transition: color 0.5s ease;
 
     &:hover,
     &:focus,
     &:active {
-      border-color: $primary;
+      border-color: v.$primary;
     }
 
     &.error {
-      border-color: $lightRed;
+      border-color: v.$lightRed;
     }
 
-    @include media-max(768px) {
+    @include m.media-max(768px) {
       width: 120px;
     }
 
-    @include media-max(425px) {
+    @include m.media-max(425px) {
       width: 90px;
       font-size: 20px;
     }
   }
 
   .errorMessage {
-    color: $lightRed;
+    color: v.$lightRed;
     font-size: smaller;
     font-style: italic;
   }
 }
 
+/* end of form */
+
 /* submit btn */
 button {
-  background-color: $primary;
+  background-color: v.$primary;
   width: 75px;
   height: 75px;
   border-radius: 100%;
@@ -148,10 +133,10 @@ button {
 
   &:focus {
     outline-offset: 0.5px;
-    outline: 2px solid darken($color: $primary, $amount: 35%);
+    outline: 2px solid darken(v.$primary, 35%);
   }
 
-  @include media-max(768px) {
+  @include m.media-max(768px) {
     margin: 30px 0;
   }
 
@@ -176,7 +161,7 @@ button {
     border-radius: 100%;
     z-index: -1;
     transition: opacity 0.3s ease-out;
-    background-color: $offBlack;
+    background-color: v.$offBlack;
     opacity: 0;
   }
 
@@ -184,28 +169,30 @@ button {
     opacity: 1;
   }
 }
-/* end of form */
+
+/* end of submit btn */
 
 /* start of result style*/
 #result {
-  color: $offBlack;
-  font-family: $font;
+  color: v.$offBlack;
+  font-family: v.$font;
   font-style: italic;
   font-weight: 800;
   font-size: 80px;
   line-height: 1.1;
 
   span {
-    color: $primary;
+    color: v.$primary;
   }
 
-  @include media-max(768px) {
+  @include m.media-max(768px) {
     font-size: 65px;
   }
 
-  @include media-max(425px) {
+  @include m.media-max(425px) {
     font-size: 52.3px;
     margin-left: 3px;
   }
 }
+
 /* end of result style*/
