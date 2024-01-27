@@ -18,6 +18,7 @@ export function displayResult(
 
 function countUp(target: HTMLElement, endVal: number) {
   const countUp = new CountUp(target, endVal)
+
   if (!countUp.error) {
     countUp.start()
   } else {

@@ -17,7 +17,16 @@ export function calculateAge(): void {
   const years = getInputValue("years")
 
   // Vérifier si le formulaire est valide
-  if (!validateForm()) {
+  if (
+    !validateForm({
+      days: days,
+      months: months,
+      years: years,
+      currentYear: currentYear,
+      currentMonth: currentMonth,
+      currentDay: currentDay,
+    })
+  ) {
     return
   }
 

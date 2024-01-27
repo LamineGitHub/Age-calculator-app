@@ -1,5 +1,5 @@
 import "../style/style.scss"
-import {calculateAge} from "./calculateAge"
+import { calculateAge } from "./calculateAge"
 
 const formElement = document.querySelector("form")!
 

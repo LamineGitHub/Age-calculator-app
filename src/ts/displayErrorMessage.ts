@@ -10,6 +10,7 @@ export function displayErrorMessage(inputId: string, message: string): void {
   const errorElement = document.querySelector(
     `#${inputId} + .errorMessage`
   ) as HTMLElement
+
   errorElement.textContent = message
 
   const inputElement = document.getElementById(inputId) as HTMLInputElement

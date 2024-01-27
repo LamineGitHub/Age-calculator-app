@@ -4,10 +4,10 @@
  * The function retrieves the numerical value of an input element on a webpage.
  * @param {string} inputId - The inputId parameter is a string that represents the ID of an HTML input
  * element.
- * @returns {number} a number value that is parsed from the value of an HTML input element with the specified
- * inputId.
+ * @returns {number} a number value that is parsed from the value of an HTML input element
+ * with the specified inputId.
  */
 export function getInputValue(inputId: string): number {
   const {value} = document.getElementById(inputId) as HTMLInputElement
-  return parseInt(value)
+  return parseInt(value, 10)
 }
